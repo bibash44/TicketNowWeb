@@ -3,6 +3,8 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const hbs = require('hbs');
+const bodyParser = require('body-parser');
+const {ObjectId} = require('mongodb');
 const port = 8080;
 
 /*setting public directory folder*/
@@ -26,15 +28,17 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.get('/', (req, res) => {
     res.render('index', {
         title: 'Homepage',
-        js:[
-           'https://code.jquery.com/jquery-3.3.1.slim.min.js',
+        js:[,
+           'https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js',
            'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js',
-           'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js' 
+           'https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'
         ],
         css:[
-            'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css',
+            'https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css',
+            'css/index.css'
 
-        ]
+        ],
+    
     })
 });
 app.listen(port);
